@@ -1,0 +1,18 @@
+#header{
+	background-color: green;
+	color: white;
+	font-size: 28px;
+	text-align: center;
+	text-decoration: solid;
+	padding-top: 3px
+	padding-button:3px;
+}
+#nav{
+	background-color: lightgrey;
+	color: white;
+	text-align: center;
+	padding: 10px;
+}
+.a {
+	padding: 10px;
+}

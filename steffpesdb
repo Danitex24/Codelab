@@ -1,0 +1,297 @@
+-- MySQL Administrator dump 1.4
+--
+-- ------------------------------------------------------
+-- Server version	5.5.5-10.3.15-MariaDB
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+
+--
+-- Create schema staffpes
+--
+
+CREATE DATABASE IF NOT EXISTS staffpes;
+USE staffpes;
+
+--
+-- Definition of table `admin`
+--
+
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE `admin` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(45) NOT NULL DEFAULT '',
+  `password` varchar(45) NOT NULL DEFAULT '',
+  `status` varchar(45) NOT NULL DEFAULT '',
+  `role` varchar(45) NOT NULL DEFAULT '',
+  `email` varchar(45) NOT NULL DEFAULT '',
+  `mobileno` varchar(45) NOT NULL DEFAULT '',
+  `entrydate` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin`
+--
+
+/*!40000 ALTER TABLE `admin` DISABLE KEYS */;
+/*!40000 ALTER TABLE `admin` ENABLE KEYS */;
+
+
+--
+-- Definition of table `class`
+--
+
+DROP TABLE IF EXISTS `class`;
+CREATE TABLE `class` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `class1` varchar(45) NOT NULL DEFAULT '',
+  `class2` varchar(45) NOT NULL DEFAULT '',
+  `class3` varchar(45) NOT NULL DEFAULT '',
+  `class4` varchar(45) NOT NULL DEFAULT '',
+  `class5` varchar(45) NOT NULL DEFAULT '',
+  `class6` varchar(45) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `class`
+--
+
+/*!40000 ALTER TABLE `class` DISABLE KEYS */;
+/*!40000 ALTER TABLE `class` ENABLE KEYS */;
+
+
+--
+-- Definition of table `course_allocation`
+--
+
+DROP TABLE IF EXISTS `course_allocation`;
+CREATE TABLE `course_allocation` (
+  `courseid` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `course_option` varchar(45) NOT NULL DEFAULT '',
+  `semester` varchar(45) NOT NULL DEFAULT '',
+  `level` varchar(45) NOT NULL DEFAULT '',
+  `year` varchar(45) NOT NULL DEFAULT '',
+  PRIMARY KEY (`courseid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `course_allocation`
+--
+
+/*!40000 ALTER TABLE `course_allocation` DISABLE KEYS */;
+/*!40000 ALTER TABLE `course_allocation` ENABLE KEYS */;
+
+
+--
+-- Definition of table `course_assign`
+--
+
+DROP TABLE IF EXISTS `course_assign`;
+CREATE TABLE `course_assign` (
+  `staffid` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL DEFAULT '',
+  `couse_assign` varchar(45) NOT NULL DEFAULT '',
+  `credit_unit` varchar(45) NOT NULL DEFAULT '',
+  `semester` varchar(45) NOT NULL DEFAULT '',
+  `level` varchar(45) NOT NULL DEFAULT '',
+  `year` varchar(45) NOT NULL DEFAULT '',
+  PRIMARY KEY (`staffid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `course_assign`
+--
+
+/*!40000 ALTER TABLE `course_assign` DISABLE KEYS */;
+/*!40000 ALTER TABLE `course_assign` ENABLE KEYS */;
+
+
+--
+-- Definition of table `monito`
+--
+
+DROP TABLE IF EXISTS `monito`;
+CREATE TABLE `monito` (
+  `email` varchar(45) NOT NULL DEFAULT '',
+  `fname` varchar(45) NOT NULL DEFAULT '',
+  `lname` varchar(45) NOT NULL DEFAULT '',
+  `username` varchar(45) NOT NULL DEFAULT '',
+  `password` varchar(45) NOT NULL DEFAULT '',
+  `mobileno` varchar(45) NOT NULL DEFAULT '',
+  `address` varchar(60) NOT NULL DEFAULT '',
+  `sex` varchar(45) NOT NULL DEFAULT '',
+  `dob` date DEFAULT NULL,
+  `class` varchar(45) NOT NULL DEFAULT '',
+  `entrydate` date DEFAULT NULL,
+  `role` varchar(45) NOT NULL DEFAULT '',
+  `status` varchar(45) NOT NULL DEFAULT '',
+  PRIMARY KEY (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `monito`
+--
+
+/*!40000 ALTER TABLE `monito` DISABLE KEYS */;
+/*!40000 ALTER TABLE `monito` ENABLE KEYS */;
+
+
+--
+-- Definition of table `monitor_staff`
+--
+
+DROP TABLE IF EXISTS `monitor_staff`;
+CREATE TABLE `monitor_staff` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `staff_name` varchar(45) NOT NULL DEFAULT '',
+  `topic` varchar(45) NOT NULL DEFAULT '',
+  `level` varchar(45) NOT NULL DEFAULT '',
+  `duration` varchar(45) NOT NULL DEFAULT '',
+  `hour` varchar(45) NOT NULL DEFAULT '',
+  `attendance` varchar(45) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `monitor_staff`
+--
+
+/*!40000 ALTER TABLE `monitor_staff` DISABLE KEYS */;
+/*!40000 ALTER TABLE `monitor_staff` ENABLE KEYS */;
+
+
+--
+-- Definition of table `session`
+--
+
+DROP TABLE IF EXISTS `session`;
+CREATE TABLE `session` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `session` varchar(45) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4294967296 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `session`
+--
+
+/*!40000 ALTER TABLE `session` DISABLE KEYS */;
+INSERT INTO `session` (`id`,`session`) VALUES 
+ (4294967295,'2019/2020');
+/*!40000 ALTER TABLE `session` ENABLE KEYS */;
+
+
+--
+-- Definition of table `staff`
+--
+
+DROP TABLE IF EXISTS `staff`;
+CREATE TABLE `staff` (
+  `email` varchar(45) NOT NULL DEFAULT '',
+  `username` varchar(45) DEFAULT NULL,
+  `password` varchar(45) DEFAULT NULL,
+  `fname` varchar(45) NOT NULL DEFAULT '',
+  `lname` varchar(45) NOT NULL DEFAULT '',
+  `sex` varchar(45) NOT NULL DEFAULT '',
+  `dob` datetime DEFAULT NULL,
+  `address` varchar(100) NOT NULL DEFAULT '',
+  `area_of_research` varchar(45) NOT NULL DEFAULT '',
+  `course_option` varchar(45) DEFAULT NULL,
+  `entry_date` date DEFAULT NULL,
+  `status` varchar(45) NOT NULL DEFAULT '',
+  PRIMARY KEY (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `staff`
+--
+
+/*!40000 ALTER TABLE `staff` DISABLE KEYS */;
+INSERT INTO `staff` (`email`,`username`,`password`,`fname`,`lname`,`sex`,`dob`,`address`,`area_of_research`,`course_option`,`entry_date`,`status`) VALUES 
+ ('dan@gmail.com','iamdan','iamdan','Daniel','Ter.','M','1990-01-22 00:00:00','Opposite total filling station, FHA Lugbe Abuja','Computer','4','2019-06-26','active'),
+ ('ggf@.com','hhhjh','uhjuh','jnjij','jiji','Female','2019-01-22 00:00:00','uhhghhuhuh','Computer','2','2019-06-26','active'),
+ ('nimahotels@gmail.com','admin','admin','Nima','Hotel','Select Gender','1990-01-22 00:00:00','Opposite total filling station, FHA Lugbe Abuja','Computer','5','2019-06-26','active'),
+ ('test@gmail.com','test','test','test','test1','M','2019-01-22 00:00:00','Opposite total filling station, FHA Lugbe Abuja','Computer','3','2019-06-26','active');
+/*!40000 ALTER TABLE `staff` ENABLE KEYS */;
+
+
+--
+-- Definition of table `student`
+--
+
+DROP TABLE IF EXISTS `student`;
+CREATE TABLE `student` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `entry_yr` date DEFAULT NULL,
+  `course_option` varchar(45) NOT NULL DEFAULT '',
+  `session` varchar(45) NOT NULL DEFAULT '',
+  `level` varchar(45) NOT NULL DEFAULT '',
+  `matric_no` varchar(45) NOT NULL DEFAULT '',
+  `fname` varchar(45) NOT NULL DEFAULT '',
+  `lname` varchar(45) NOT NULL DEFAULT '',
+  `sex` varchar(45) NOT NULL DEFAULT '',
+  `dob` date DEFAULT NULL,
+  `email` varchar(45) NOT NULL DEFAULT '',
+  `username` varchar(45) NOT NULL DEFAULT '',
+  `password` varchar(45) NOT NULL DEFAULT '',
+  `role` varchar(45) NOT NULL DEFAULT '',
+  `status` varchar(45) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4294967296 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `student`
+--
+
+/*!40000 ALTER TABLE `student` DISABLE KEYS */;
+INSERT INTO `student` (`id`,`entry_yr`,`course_option`,`session`,`level`,`matric_no`,`fname`,`lname`,`sex`,`dob`,`email`,`username`,`password`,`role`,`status`) VALUES 
+ (4294967295,'2019-06-27','1','1','200','jhhg6757i6ukjgvt7rtecw','Nima','Hotel','Male','0000-00-00','','guest','hjbknjnk','student','active');
+/*!40000 ALTER TABLE `student` ENABLE KEYS */;
+
+
+--
+-- Definition of table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(45) NOT NULL DEFAULT '',
+  `password` varchar(45) NOT NULL DEFAULT '',
+  `role` varchar(45) NOT NULL DEFAULT '',
+  `status` varchar(45) NOT NULL DEFAULT '',
+  `entrance_period` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4294967296 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` (`id`,`username`,`password`,`role`,`status`,`entrance_period`) VALUES 
+ (1561740341,'Daniel','1234','Staff','active','2019-06-22'),
+ (1561745814,'monitor','1234','monitor','active','2019-06-22'),
+ (4294967295,'admin','admin','Administrator','active','2019-06-22');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+
+
+
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
